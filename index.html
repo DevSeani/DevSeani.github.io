@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/interface.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pyrope Farms</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class = "title-box">
+            <h1>Welcome to Pyrope Farms</h1>
+        </div>
+    </div>
+
+
+    <div class= "tereziDisplay">
+        <p>Terezi count: <span id="tereziCount"> 0 </span></p></br>
+    </div>
+
+<div class ="tpsDisplay">
+    <p>Terezi's Per Second: 
+    <span id="tps"> 0 </span> </br></p>
+</div>
+    
+
+    <div class="tereziClickClass">
+        <button type="button" onclick="tereziClick(1)">Click here for Terezi!!!!</button>
+    </div></br>
+
+    <div class="tereziGangMembers">
+        <button type="button" onclick="buyTereziGangMember()">
+            Terezi Gang Members: <span id="tereziGangMembers"> 0 </span></br></br>
+            Cost: <span id="tereziGangMemberCost">10</span>
+        </button>
+    </div>
+    <div class="saveData">
+        <button type="button" onclick="save()">
+            Save </br>
+        </button>
+    </div><div class="saveData">
+        <button type="button" onclick="deleteSave()">
+            Delete Save </br>
+        </button>
+    </div>
+    <script src="main.js">
+    </script>
+</body>
+</html>
