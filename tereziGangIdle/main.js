@@ -32,6 +32,19 @@ function deleteSave(){
 
 window.onload= load() 
 
+function format(value){
+    let power = Math.floor(Math.log10(value));
+    if (power < 1 ) return value.toFixed(0)
+    value = value / Math.pow(10, power)
+    if (power % 3 == 0) return value.toFixed(3);
+    return value.toFixed(2);
+}
+
+function formatPower(value){
+    let power = Math.floor(Math.log10(value)) + 1;
+    if (power < 0 ) return "0"
+    return power
+}
 
 function tereziClick(number){
     tereziCount = tereziCount + number;
@@ -60,15 +73,16 @@ window.setInterval(function(){
 
 function calculateTPS(){
 
-    tps = tereziGangMembers
+    tps = tereziGangMembers;
     return tps;
 }
 
 function updateText(){
     tps = calculateTPS();
     document.getElementById('tps').innerHTML = tps;
-    document.getElementById("tereziCount").innerHTML =  tereziCount
-    document.title = "Terezi count: " + tereziCount
+    document.getElementById("tereziCount").innerHTML =  format(tereziCount) + " x10";
+    document.getElementById("tereziCountPower").innerHTML =  formatPower(tereziCount);
+    document.title = "Terezi count: " + tereziCount;
     document.getElementById('tereziGangMembers').innerHTML = tereziGangMembers;
     document.getElementById('tereziGangMemberCost').innerHTML = Math.floor(10 * Math.pow(1.1,tereziGangMembers));
 }

@@ -41,10 +41,10 @@ body{
 
 .tereziDisplay p{
 
-    margin: 20px 85px;
+    margin: 20px 75px;
     word-wrap: break-word;
-    width: 150px;
-    height: 125px;
+    width: 180px;
+    height: 80px;
     background-color: #ffffff;
     border: black 5px solid;
 }
