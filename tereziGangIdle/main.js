@@ -36,7 +36,7 @@ function format(value){
     let power = Math.floor(Math.log10(value));
     if (power < 1 ) return value.toFixed(0)
     value = value / Math.pow(10, power)
-    if (power % 3 == 0) return value.toFixed(3);
+    if (power < 3 == 0) return value.toFixed(3);
     return value.toFixed(2);
 }
 
