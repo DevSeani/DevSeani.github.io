@@ -6,7 +6,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158642837-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-158642837-1');
@@ -15,30 +15,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="shortcut icon" href="/tereziGangIdle/images/favicon.ico" />
     <title>Pyrope Farms</title>
 </head>
 
 <body>
     <div class="container">
-        <div class = "title-box">
+        <div class="title-box">
             <h1>Welcome to Pyrope Farms</h1>
         </div>
     </div>
 
 
-    <div class= "tereziDisplay">
-        <p>Terezi Count: <span id="tereziCount"> 0 </span><sup><span id = "tereziCountPower">0</sup></span> </p></br>
+    <div class="tereziDisplay">
+        <p>Terezi Count: <span id="tereziCount"> 0 </span>
+            <sup><span id="tereziCountPower">0</sup></span> </p></br>
     </div>
 
-    <div class ="tpsDisplay">
-        <p>Terezi's Per Second: 
-        <span id="tps"> 0 </span> </br></p>
+    <div class="tpsDisplay">
+        <p>Terezi's Per Second:
+            <span id="tps"> 0 </span> </br></p>
     </div>
-    
+
 
     <div class="tereziClickClass">
-        <button type="button" onclick="tereziClick(1)">Click here for Terezi!!!!</button>
+        <button type="button" onclick="tereziClick(1)">
+            Click here for Terezi!!!!</button>
     </div></br>
 
     <div class="tereziGangMembers">
@@ -51,7 +53,8 @@
         <button type="button" onclick="save()">
             Save </br>
         </button>
-    </div><div class="saveData">
+    </div>
+    <div class="saveData">
         <button type="button" onclick="deleteSave()">
             Delete Save </br>
         </button>
@@ -59,4 +62,5 @@
     <script src="main.js">
     </script>
 </body>
+
 </html>
