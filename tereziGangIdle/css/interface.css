@@ -8,8 +8,10 @@ body {
 }
 
 .topnav {
+	align-content: flex-start;
 	background-color: #2b303a;
 	overflow: hidden;
+	align-items: center;
 	display: flex;
 	flex-direction: row-reverse;
 }
@@ -32,6 +34,16 @@ body {
 
 .topnav button.active {
 	color: white;
+}
+
+.saveStuff {
+	display: flex;
+}
+.patchNumber {
+	font-size: 12px;
+	min-height: 25px;
+	max-height: 25px;
+	flex-grow: 2;
 }
 
 .container {
