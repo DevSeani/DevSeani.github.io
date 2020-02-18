@@ -25,7 +25,6 @@ function save() {
 	var save = {
 		tereziCount: tereziCount,
 		wool: wool,
-		tereziGangMembers: tereziGangMembers,
 		tereziGangMembersAvailable: tereziGangMembersAvailable,
 		tereziGangMembersTotal: tereziGangMembersTotal,
 		currentTereziWorkers: currentTereziWorkers,
@@ -39,27 +38,15 @@ function load() {
 	if (savegame == null) return false;
 	if (typeof savegame.tereziCount !== "undefined")
 		tereziCount = savegame.tereziCount;
-	if (typeof savegame.tereziGangMembers !== "undefined") {
-		console.log(savegame.tereziGangMembers);
-		if (savegame.tereziGangMembers !== 1) {
-			console.log(savegame.tereziGangMembers);
-			tereziGangMembersAvailable = savegame.tereziGangMembers;
-			tereziGangMembersTotal = savegame.tereziGangMembers;
-			currentTereziWorkers = 0;
-			currentSheepWorkers = 0;
-			tereziGangMembers = 1;
-		} else {
-			if (typeof savegame.tereziGangMembersAvailable !== "undefined")
-				tereziGangMembersAvailable = savegame.tereziGangMembersAvailable;
-			if (typeof savegame.tereziGangMembersTotal !== "undefined")
-				tereziGangMembersTotal = savegame.tereziGangMembersTotal;
-			if (typeof savegame.currentTereziWorkers !== "undefined")
-				currentTereziWorkers = savegame.currentTereziWorkers;
-			if (typeof savegame.currentSheepWorkers !== "undefined")
-				currentSheepWorkers = savegame.currentSheepWorkers;
-			if (typeof savegame.wool !== "undefined") wool = savegame.wool;
-		}
-	}
+	if (typeof savegame.tereziGangMembersAvailable !== "undefined")
+		tereziGangMembersAvailable = savegame.tereziGangMembersAvailable;
+	if (typeof savegame.tereziGangMembersTotal !== "undefined")
+		tereziGangMembersTotal = savegame.tereziGangMembersTotal;
+	if (typeof savegame.currentTereziWorkers !== "undefined")
+		currentTereziWorkers = savegame.currentTereziWorkers;
+	if (typeof savegame.currentSheepWorkers !== "undefined")
+		currentSheepWorkers = savegame.currentSheepWorkers;
+	if (typeof savegame.wool !== "undefined") wool = savegame.wool;
 }
 
 function deleteSave() {
