@@ -7,20 +7,61 @@ body {
 	font-weight: normal;
 }
 
+.topnav {
+	background-color: #2b303a;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.topnav button {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	text-decoration: none;
+	color: #0e1116;
+	font-size: 17px;
+	min-height: 25px;
+	max-height: 25px;
+}
+
+.topnav button:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav button.active {
+	color: white;
+}
+
 .container {
 	width: 100%;
 	margin: 0px 20px;
 }
 
-.tereziClickClass button {
-	background-color: #008282;
+.tereziClickClass {
+	box-sizing: border-box;
+	display: flex;
 	height: 36px;
+	justify-content: center;
+	align-items: center;
+	margin: 75px;
+}
+
+.tereziClickClass p {
+	text-align: center;
+	background-color: #008282;
 	font-family: Verdana;
 	font-size: 24px;
 	color: #0e1116;
-	margin: 0px 30px;
+}
+
+.tereziClickClass button {
+	background-color: #008282;
+	font-family: Verdana;
+	font-size: 24px;
+	color: #0e1116;
 	border: none;
-	cursor: pointer;
 }
 .tereziClickClass button:hover {
 	background-color: #026970;
@@ -39,6 +80,15 @@ body {
 	background-color: #9b061c;
 }
 
+.currentTereziWorkerDisplay {
+	text-align: center;
+	background-color: #008282;
+	font-family: Verdana;
+	font-size: 24px;
+	color: #0e1116;
+	margin: 0px 30px;
+}
+
 .tereziDisplay p {
 	margin: 20px 75px;
 	word-wrap: break-word;
@@ -55,4 +105,104 @@ body {
 	height: 80px;
 	background-color: rgb(134, 133, 133);
 	border: #0e1116 5px solid;
+}
+
+.sheepClickClass {
+	box-sizing: border-box;
+	display: flex;
+	height: 36px;
+	justify-content: center;
+	align-items: center;
+	margin: 75px;
+}
+
+.sheepClickClass p {
+	text-align: center;
+	background-color: #008282;
+	font-family: Verdana;
+	font-size: 24px;
+	color: #0e1116;
+}
+
+.sheepClickClass button {
+	background-color: #008282;
+	font-family: Verdana;
+	font-size: 24px;
+	color: #0e1116;
+	border: none;
+}
+.sheepClickClass button:hover {
+	background-color: #026970;
+}
+
+.currentSheepWorkerDisplay {
+	text-align: center;
+	background-color: #008282;
+	font-family: Verdana;
+	font-size: 24px;
+	color: #0e1116;
+	margin: 0px 30px;
+}
+
+.woolDisplay p {
+	margin: 20px 75px;
+	word-wrap: break-word;
+	width: 180px;
+	height: 80px;
+	background-color: #ffffff;
+	border: #0e1116 5px solid;
+}
+
+.wpsDisplay p {
+	margin: 20px 85px;
+	word-wrap: break-word;
+	width: 150px;
+	height: 80px;
+	background-color: rgb(134, 133, 133);
+	border: #0e1116 5px solid;
+}
+
+.woolShopButtonDesign {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+
+.woolShopButtonDesign button {
+	background-color: #33aa3d;
+	font-family: Verdana;
+	font-size: 24px;
+	color: #0e1116;
+	margin: 0px 30px 40px 0px;
+	border: none;
+	cursor: pointer;
+}
+.woolShopButtonDesign button:hover {
+	background-color: #1e6e24;
+}
+
+.statDisplay {
+	display: flex;
+}
+
+.patchnoteContainer {
+	background-color: #eee4e4;
+}
+
+.patchnoteContainer h2 {
+	font-size: 30px;
+}
+
+.patchnoteContainer li {
+	font-size: 24px;
+}
+
+.patchnoteContainer p {
+	font-size: 24px;
+}
+
+.patch3 {
+	display: flex;
+	background-color: rgb(111, 209, 111);
+	padding-bottom: 5px;
 }
