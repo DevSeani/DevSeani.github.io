@@ -31,6 +31,7 @@ function save() {
 		currentSheepWorkers: currentSheepWorkers
 	};
 	localStorage.setItem("save", JSON.stringify(save));
+	console.log(save);
 }
 
 function load() {
@@ -81,7 +82,8 @@ function tereziCountChange(number) {
 }
 
 function woolCountChange(number) {
-	wool = wool + number * 0.1 * woolMultiplier;
+	let value = wool + number * 0.1 * woolMultiplier;
+	return Math.round(value * 100) / 100;
 }
 
 function tereziGangAllocation(number, gangMemberLocation) {
@@ -135,7 +137,7 @@ function buyTereziGangMember() {
 
 window.setInterval(function() {
 	tereziCountChange(currentTereziWorkers);
-	woolCountChange(currentSheepWorkers);
+	wool = woolCountChange(currentSheepWorkers);
 }, 1000);
 
 let autoSave = window.setInterval(function() {
