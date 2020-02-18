@@ -24,6 +24,7 @@ var wool = 0;
 function save() {
 	var save = {
 		tereziCount: tereziCount,
+		wool: wool,
 		tereziGangMembers: tereziGangMembers,
 		tereziGangMembersAvailable: tereziGangMembersAvailable,
 		tereziGangMembersTotal: tereziGangMembersTotal,
@@ -56,6 +57,7 @@ function load() {
 				currentTereziWorkers = savegame.currentTereziWorkers;
 			if (typeof savegame.currentSheepWorkers !== "undefined")
 				currentSheepWorkers = savegame.currentSheepWorkers;
+			if (typeof savegame.wool !== "undefined") wool = savegame.wool;
 		}
 	}
 }
