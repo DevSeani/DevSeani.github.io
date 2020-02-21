@@ -85,7 +85,7 @@ body {
 	font-size: 24px;
 	color: #0e1116;
 	margin: 0px 30px;
-	border: none;
+	border: #0e1116 5px solid;
 	cursor: pointer;
 }
 .tereziGangMembers button:hover {
@@ -105,18 +105,16 @@ body {
 	margin: 20px 75px;
 	word-wrap: break-word;
 	width: 180px;
-	height: 80px;
+	min-height: 80px;
 	background-color: #ffffff;
-	border: #0e1116 5px solid;
 }
 
 .tpsDisplay p {
 	margin: 20px 85px;
 	word-wrap: break-word;
 	width: 150px;
-	height: 80px;
+	min-height: 80px;
 	background-color: rgb(134, 133, 133);
-	border: #0e1116 5px solid;
 }
 
 .sheepClickClass {
@@ -162,7 +160,6 @@ body {
 	width: 180px;
 	height: 80px;
 	background-color: #ffffff;
-	border: #0e1116 5px solid;
 }
 
 .wpsDisplay p {
@@ -171,7 +168,6 @@ body {
 	width: 150px;
 	height: 80px;
 	background-color: rgb(134, 133, 133);
-	border: #0e1116 5px solid;
 }
 
 .woolShopButtonDesign {
@@ -186,7 +182,7 @@ body {
 	font-size: 24px;
 	color: #0e1116;
 	margin: 0px 30px 40px 0px;
-	border: none;
+	border: #0e1116 5px solid;
 	cursor: pointer;
 }
 .woolShopButtonDesign button:hover {
@@ -216,5 +212,10 @@ body {
 .patch3 {
 	display: flex;
 	background-color: rgb(111, 209, 111);
+	padding-bottom: 5px;
+}
+.patch4 {
+	display: flex;
+	background-color: rgb(232, 243, 76);
 	padding-bottom: 5px;
 }

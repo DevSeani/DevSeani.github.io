@@ -15,11 +15,13 @@ var tereziGangMembers = 1;
 var tereziGangMembersTotal = 1;
 var tereziGangMembersAvailable = 1;
 var currentTereziWorkers = 0;
-var tereziMultiplier = 1.0;
 var currentSheepWorkers = 0;
-var woolMultiplier = 1.0;
 var tps = 0;
 var wool = 0;
+//Order = tereziGain, woolGain memberPriceReduction
+var multiplierChange = [1.0, 1.0, 1.0];
+var upgradeTypes = ["tereziGain", "woolGain", "memberPriceReduction"];
+var upgradeAmount = [0, 0, 0];
 
 function save() {
 	var save = {
@@ -28,10 +30,10 @@ function save() {
 		tereziGangMembersAvailable: tereziGangMembersAvailable,
 		tereziGangMembersTotal: tereziGangMembersTotal,
 		currentTereziWorkers: currentTereziWorkers,
-		currentSheepWorkers: currentSheepWorkers
+		currentSheepWorkers: currentSheepWorkers,
+		upgradeAmount: upgradeAmount
 	};
 	localStorage.setItem("save", JSON.stringify(save));
-	console.log(save);
 }
 
 function load() {
@@ -48,6 +50,8 @@ function load() {
 	if (typeof savegame.currentSheepWorkers !== "undefined")
 		currentSheepWorkers = savegame.currentSheepWorkers;
 	if (typeof savegame.wool !== "undefined") wool = savegame.wool;
+	if (typeof savegame.upgradeAmount !== "undefined")
+		upgradeAmount = savegame.upgradeAmount;
 }
 
 function deleteSave() {
@@ -62,6 +66,7 @@ function deleteSave() {
 }
 
 window.onload = load();
+window.onload = upgradeMultiplierChange();
 
 function format(value) {
 	let power = Math.floor(Math.log10(value));
@@ -78,11 +83,11 @@ function formatPower(value) {
 }
 
 function tereziCountChange(number) {
-	tereziCount = tereziCount + number * tereziMultiplier;
+	tereziCount = tereziCount + number * multiplierChange[0];
 }
 
 function woolCountChange(number) {
-	let value = wool + number * 0.1 * woolMultiplier;
+	let value = wool + number * 0.1 * multiplierChange[1];
 	return Math.round(value * 100) / 100;
 }
 
@@ -125,15 +130,52 @@ function sheepAllocation(number) {
 
 function buyTereziGangMember() {
 	var tereziGangMemberCost = Math.floor(
-		10 * Math.pow(1.1, tereziGangMembersTotal - 1)
+		10 * Math.pow(1.1, tereziGangMembersTotal - 1) * multiplierChange[2]
 	);
 	if (tereziCount >= tereziGangMemberCost) {
 		tereziGangMembersTotal = tereziGangMembersTotal + 1;
 		tereziGangMembersAvailable = tereziGangMembersAvailable + 1;
 		tereziCount = tereziCount - tereziGangMemberCost;
 	}
-	var nextCost = Math.floor(10 * Math.pow(1.1, tereziGangMembersTotal - 1));
 }
+
+//SHOP
+
+function upgradeMultiplierChange() {
+	multiplierChange[0] = 1 + upgradeAmount[0] * 0.1; //terezi
+	multiplierChange[1] = 1 + upgradeAmount[1] * 0.1; //wool
+	multiplierChange[2] = reduceGangMemberCost(upgradeAmount[2]); //gang mem cost
+}
+
+function reduceGangMemberCost(value) {
+	let tempMulti2 = 1.0;
+
+	for (let i = 0; i < value; i++) {
+		tempMulti2 = (tempMulti2 / 100) * 90;
+	}
+	return tempMulti2;
+}
+
+function shopPrices(item) {
+	let shopBasePrice = [10, 50, 100];
+	if (upgradeAmount[item] > 0) {
+		var returnPrice =
+			(shopBasePrice[item] / 100) * (115 * (upgradeAmount[item] + 1));
+		return Math.round(returnPrice * 100) / 100;
+	} else {
+		return shopBasePrice[item];
+	}
+}
+
+function shopBuyUpgrade(item) {
+	if (wool >= shopPrices(item)) {
+		wool = wool - shopPrices(item);
+		upgradeAmount[item] = upgradeAmount[item] + 1;
+	}
+	upgradeMultiplierChange();
+}
+
+//GAME LOOP AND DISPAY UPDATES
 
 window.setInterval(function() {
 	tereziCountChange(currentTereziWorkers);
@@ -149,12 +191,13 @@ window.setInterval(function() {
 }, 100);
 
 function calculateTPS() {
-	tps = currentTereziWorkers * tereziMultiplier;
-	return tps.toFixed(0);
+	tps = currentTereziWorkers * multiplierChange[0];
+	if (tps % 1 != 0) return tps.toFixed(1);
+	else return tps.toFixed(0);
 }
 
 function calculateWPS() {
-	wps = currentSheepWorkers * 0.1 * woolMultiplier;
+	wps = currentSheepWorkers * 0.1 * multiplierChange[1];
 	return wps.toFixed(1);
 }
 
@@ -170,7 +213,7 @@ function updateText() {
 	);
 	document.getElementById("wool").innerHTML = format(wool) + " x10";
 	document.getElementById("woolCountPower").innerHTML = formatPower(wool);
-	document.title = "Terezi count: " + tereziCount;
+	document.title = "Terezi count: " + Math.round(tereziCount * 100) / 100;
 	setFavicon("../terezigangidle/images/favicon.ico");
 	document.getElementById(
 		"tereziGangMembersTotal"
@@ -179,7 +222,7 @@ function updateText() {
 		"tereziGangMembersAvailable"
 	).innerHTML = tereziGangMembersAvailable;
 	document.getElementById("tereziGangMemberCost").innerHTML = Math.floor(
-		10 * Math.pow(1.1, tereziGangMembersTotal - 1)
+		10 * Math.pow(1.1, tereziGangMembersTotal - 1) * multiplierChange[2]
 	);
 	document.getElementById(
 		"currentTereziWorkers"
@@ -187,4 +230,14 @@ function updateText() {
 	document.getElementById(
 		"currentSheepWorkers"
 	).innerHTML = currentSheepWorkers;
+	//SHOP
+	document.getElementById("shopUpgradeTereziPurchased").innerHTML =
+		upgradeAmount[0];
+	document.getElementById("shopUpgradeWoolPurchased").innerHTML =
+		upgradeAmount[1];
+	document.getElementById("shopUpgradeGangMemberPurchased").innerHTML =
+		upgradeAmount[2];
+	document.getElementById("shopUpgradeTerezi").innerHTML = shopPrices(0);
+	document.getElementById("shopUpgradeWool").innerHTML = shopPrices(1);
+	document.getElementById("shopUpgradeGangMember").innerHTML = shopPrices(2);
 }

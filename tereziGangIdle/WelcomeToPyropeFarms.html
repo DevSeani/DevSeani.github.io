@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="patchNumber">
-            <p>Patch 3.02</p>
+            <p>Patch 4</p>
         </div>
 
     </div>
@@ -118,35 +118,33 @@
         <div class="woolShop">
             <div class="woolShopButtonDesign">
 
-                <button type="woolShopButton" onclick="">
+                <button type="woolShopButton" onclick=shopBuyUpgrade(0)>
                     Upgrade Terezi<br>
                     gain by 10%<br>
-                    <span id="shopUpgradeTerezi">10</span> wool</button>
+                    <span id="shopUpgradeTerezi">10</span> wool <br>
+                    <span id="shopUpgradeTereziPurchased">0</span> Purchased
+                </button>
             </div>
 
             <div class="woolShopButtonDesign">
 
-                <button type="woolShopButton" onclick="">
+                <button type="woolShopButton" onclick=shopBuyUpgrade(1)>
                     Upgrade Wool<br>
                     gain by 10%<br>
-                    <span id="shopUpgradeTerezi">50</span> wool
+                    <span id="shopUpgradeWool">50</span> wool <br>
+                    <span id="shopUpgradeWoolPurchased">0</span> Purchased
+                </button>
             </div>
 
             <div class="woolShopButtonDesign">
 
-                <button type="woolShopButton" onclick="">
+                <button type="woolShopButton" onclick=shopBuyUpgrade(2)>
                     Reduce Gang<br>
                     Member<br>
                     Price by 10%<br>
-                    <span id="shopUpgradeTerezi">100</span> wool
-            </div>
-
-            <div class="woolShopButtonDesign">
-
-                <button type="woolShopButton" onclick="">
-                    Shop Does<br>
-                    Not work yet<br>
-                    Sorry<br>
+                    <span id="shopUpgradeGangMember">100</span> wool<br>
+                    <span id="shopUpgradeGangMemberPurchased">0</span> Purchased
+                </button>
             </div>
             <div>
                 <img src="images/terezi-openbound-dragon.gif">
