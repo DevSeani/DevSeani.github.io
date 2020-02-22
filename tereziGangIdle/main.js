@@ -77,7 +77,7 @@ function format(value) {
 }
 
 function formatPower(value) {
-	let power = Math.floor(Math.log10(value)) + 1;
+	let power = Math.floor(Math.log10(value));
 	if (power < 0) return "0";
 	return power;
 }
