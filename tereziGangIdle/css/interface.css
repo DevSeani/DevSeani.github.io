@@ -5,9 +5,17 @@ body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 24px;
 	font-weight: normal;
+	padding: 0px;
+	margin: 0px;
+}
+
+button {
+	font-size: 24px;
 }
 
 .topnav {
+	font-size: 24px;
+	font-weight: bold;
 	align-content: flex-start;
 	background-color: #2b303a;
 	overflow: hidden;
@@ -35,56 +43,52 @@ body {
 .topnav button.active {
 	color: white;
 }
+.patchNumber {
+	flex-grow: 2;
+}
 
 .saveStuff {
 	display: flex;
 }
-.patchNumber {
-	font-size: 12px;
-	min-height: 25px;
-	max-height: 25px;
-	flex-grow: 2;
+
+.stats {
+	margin: 0px 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
-.container {
-	width: 100%;
-	margin: 0px 20px;
-}
-
-.tereziClickClass {
+.pointDistribtion {
 	box-sizing: border-box;
 	display: flex;
 	height: 36px;
 	justify-content: center;
 	align-items: center;
-	margin: 75px;
 }
 
-.tereziClickClass p {
+.pointDistribtion p {
 	text-align: center;
 	background-color: #008282;
 	font-family: Verdana;
-	font-size: 24px;
 	color: #0e1116;
 }
 
-.tereziClickClass button {
+.pointDistribtion button {
 	background-color: #008282;
 	font-family: Verdana;
-	font-size: 24px;
 	color: #0e1116;
-	border: none;
+	border: #0e1116 2px solid;
 }
-.tereziClickClass button:hover {
+.pointDistribtion button:hover {
 	background-color: #026970;
+	cursor: pointer;
 }
 
 .tereziGangMembers button {
 	background-color: #b3001b;
 	font-family: Verdana;
-	font-size: 24px;
 	color: #0e1116;
-	margin: 0px 30px;
 	border: #0e1116 5px solid;
 	cursor: pointer;
 }
@@ -92,82 +96,29 @@ body {
 	background-color: #9b061c;
 }
 
-.currentTereziWorkerDisplay {
+.currentWorkerDisplay {
 	text-align: center;
 	background-color: #008282;
 	font-family: Verdana;
-	font-size: 24px;
 	color: #0e1116;
-	margin: 0px 30px;
 }
 
 .tereziDisplay p {
-	margin: 20px 75px;
 	word-wrap: break-word;
 	width: 180px;
-	min-height: 80px;
 	background-color: #ffffff;
 }
 
-.tpsDisplay p {
-	margin: 20px 85px;
+.perSecond p {
 	word-wrap: break-word;
 	width: 150px;
-	min-height: 80px;
 	background-color: rgb(134, 133, 133);
-}
-
-.sheepClickClass {
-	box-sizing: border-box;
-	display: flex;
-	height: 36px;
-	justify-content: center;
-	align-items: center;
-	margin: 75px;
-}
-
-.sheepClickClass p {
-	text-align: center;
-	background-color: #008282;
-	font-family: Verdana;
-	font-size: 24px;
-	color: #0e1116;
-}
-
-.sheepClickClass button {
-	background-color: #008282;
-	font-family: Verdana;
-	font-size: 24px;
-	color: #0e1116;
-	border: none;
-}
-.sheepClickClass button:hover {
-	background-color: #026970;
-}
-
-.currentSheepWorkerDisplay {
-	text-align: center;
-	background-color: #008282;
-	font-family: Verdana;
-	font-size: 24px;
-	color: #0e1116;
-	margin: 0px 30px;
 }
 
 .woolDisplay p {
-	margin: 20px 75px;
 	word-wrap: break-word;
 	width: 180px;
-	height: 80px;
 	background-color: #ffffff;
-}
-
-.wpsDisplay p {
-	margin: 20px 85px;
-	word-wrap: break-word;
-	width: 150px;
-	height: 80px;
-	background-color: rgb(134, 133, 133);
 }
 
 .woolShopButtonDesign {
@@ -179,9 +130,7 @@ body {
 .woolShopButtonDesign button {
 	background-color: #33aa3d;
 	font-family: Verdana;
-	font-size: 24px;
 	color: #0e1116;
-	margin: 0px 30px 40px 0px;
 	border: #0e1116 5px solid;
 	cursor: pointer;
 }
@@ -190,7 +139,12 @@ body {
 }
 
 .statDisplay {
+	margin-left: 30px;
 	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-content: center;
 }
 
 .patchnoteContainer {

@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="patchNumber">
-            <p>Patch 4.01</p>
+            <p>Patch 4.1</p>
         </div>
 
     </div>
@@ -54,26 +54,27 @@
 
     <div class="statDisplay">
 
-        <div class="tereziStats">
+        <div class="stats">
+
             <div class="tereziDisplay">
 
                 <p>Terezi Count: <span id="tereziCount"> 0 </span>
                     <sup><span id="tereziCountPower">0</sup></span> </p></br>
             </div>
 
-            <div class="tpsDisplay">
+            <div class="perSecond">
                 <p>Terezi's Per Second:
                     <span id="tps"> 0 </span> </br></p>
             </div>
 
-            <div class="tereziClickClass">
+            <div class="pointDistribtion">
                 <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'terezi')">
                     -</button>
                 <p>Get Terezi's</p>
                 <button type="buttonPlus" onclick="tereziGangAllocation(1, 'terezi')">
                     +</button>
             </div>
-            <div class="currentTereziWorkerDisplay">
+            <div class="currentWorkerDisplay">
                 <p>Current Gang<br>
                     Members<br>
                     Making Terezis: <span id="currentTereziWorkers">0</span></p>
@@ -87,29 +88,28 @@
                     Cost: <span id="tereziGangMemberCost">10</span>
                 </button>
             </div>
-
         </div>
 
-        <div class="sheepStats">
+        <div class="stats">
             <div class="woolDisplay">
 
                 <p>Wool Count:<br> <span id="wool"> 0 </span>
                     <sup><span id="woolCountPower">0</sup></span> </p></br>
             </div>
 
-            <div class="wpsDisplay">
+            <div class="perSecond">
                 <p>Wool Per Second:
                     <span id="wps"> 0 </span> </br></p>
             </div>
 
-            <div class="sheepClickClass">
+            <div class="pointDistribtion">
                 <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'sheep')">
                     -</button>
                 <p>Shear Sheeps</p>
                 <button type="buttonPlus" onclick="tereziGangAllocation(1, 'sheep')">
                     +</button>
             </div>
-            <div class="currentSheepWorkerDisplay">
+            <div class="currentWorkerDisplay">
                 <p>Current Gang<br>
                     Members<br>
                     Shearing Sheeps: <span id="currentSheepWorkers">0</span></p>
