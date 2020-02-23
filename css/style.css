@@ -1,0 +1,168 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	padding: 0px;
+	font-weight: normal;
+	margin: 0px;
+	background-color: #555e6e;
+}
+
+/* Global */
+.container {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+ul {
+	margin: 10;
+	padding: 0;
+}
+
+/* Header */
+header {
+	background-color: #555e6e;
+	color: #0e1116;
+	min-height: 40px;
+	border-bottom: #008282 3px solid;
+}
+
+header a {
+	columns: #0e1116;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+header a:visited {
+	color: #0e1116;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+header li {
+	display: inline;
+	padding: 0 20px;
+}
+
+header #brand {
+	float: left;
+}
+
+header #brand h1 {
+	margin: 0;
+}
+header #brand p {
+	margin: 0;
+}
+
+header nav {
+	float: right;
+	margin-top: 10px;
+}
+
+header .highlight,
+header .current a {
+	color: #0bbebe;
+	text-shadow: 0px 2px #000000;
+	font-weight: bold;
+}
+
+header a:hover {
+	color: #cccccc;
+}
+
+header #patchNumber {
+	float: left;
+}
+
+/* Home Page */
+
+#homePage {
+	height: 400px;
+	width: 100%;
+	background: url("/images/TereziForest.gif") no-repeat 0 80%;
+	background-size: cover;
+}
+
+.title-box h1 {
+	text-align: start;
+	color: #008282;
+	font-size: 40px;
+	text-shadow: 2px 3px #000000;
+	padding: none;
+	float: left;
+}
+
+#homePage button {
+	float: left;
+	background: transparent;
+	border: 2px #000000 solid;
+	font-size: 40px;
+	min-height: 100px;
+}
+
+/* Info */
+
+#info {
+	background-color: #0e1116;
+	color: #ffffff;
+	min-height: 30px;
+}
+
+#info p {
+	float: left;
+}
+
+#info img {
+	float: left;
+	height: 40px;
+	padding: 0px 10px;
+}
+
+/* Boxes */
+#boxes {
+	margin: 20px;
+}
+
+#boxes .box {
+	float: left;
+	text-align: center;
+	width: 30%;
+	padding: 10px;
+}
+
+#boxes .box img {
+	width: 90px;
+}
+
+footer {
+	margin-top: 20px;
+	color: #000000;
+	text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+	header #branding,
+	header nav,
+	header nav li {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	#boxes {
+		display: flex;
+	}
+	#boxes .box {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	header nav {
+		display: flex;
+		width: 100%;
+	}
+}

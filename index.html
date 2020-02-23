@@ -2,36 +2,78 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158642837-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-158642837-1');
-    </script>
-
     <link rel="stylesheet" type="text/css" href="css/interface.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="./images/favicon.ico" />
-    <title>Pyrope Farms</title>
+    <title>SeaniDev Github Site</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="title-box">
-            <h1>Welcome to Pyrope Farms!!!</h1>
+    <header>
+        <div class="container">
+            <div id="brand">
+                <h1>
+                    <span class="highlight">SeaniDev</span> Github Site
+                </h1>
+                <div id="patchNumber">
+                    <p><span class="highlight">Patch 4.19</span></p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="/tereziGangIdle/WelcomeToPyropeFarms.html">Game</a></li>
+                    <li><a href="/tereziGangIdle/Patchnotes.html">Patchnotes</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="tereziGangIdleLink">
-            <button type="button" onclick="window.location.href = './tereziGangIdle/WelcomeToPyropeFarms.html'">Click
-                here to Enter!!!!</button>
-        </div></br>
-    </div>
-
+    </header>
+    <section id="homePage">
+        <div class="container">
+            <div class="title-box">
+                <h1>Welcome to Pyrope Farms!!!</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="tereziGangIdleLink">
+                <button type="button"
+                    onclick="window.location.href = './tereziGangIdle/WelcomeToPyropeFarms.html'">Click
+                    here to Enter!!!!</button>
+            </div></br>
+        </div>
+        </div>
+    </section>
+    <section id="info">
+        <div class="container">
+            <h1>What this website is all about</h1>
+            <p>Basically, I am learning how to make websites</p><img src="/images/akkoshrug.png">
+        </div>
+    </section>
+    <section id="boxes">
+        <div class="container">
+            <div class="box">
+                <a href="https://www.youtube.com/channel/UCZWV_WwWXtW1y7e3qN6JREA" target="_blank"><img
+                        src="/images/youtubeLogo.png"></a>
+                <p>Subscibe for more</p>
+            </div>
+            <div class="box">
+                <a href="https://twitter.com/Imstillseani" target="_blank"><img src="/images/twitterLogo.png"></a>
+                <p>I just retweet Hale</p>
+            </div>
+            <div class="box">
+                <a href="https://discord.gg/a9HrvCY" target="_blank"><img src="/images/discordLogo.png"></a>
+                <p>Not great but relevent</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>SeaniDev, A Guy with a Dream</p>
+        <p>Not Copyright 2020</p>
+    </footer>
 
 </body>
 
