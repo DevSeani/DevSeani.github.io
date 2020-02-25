@@ -2,16 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158642837-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-158642837-1');
-    </script>
-    <link rel="stylesheet" type="text/css" href="css/interface.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,141 +11,215 @@
 </head>
 
 <body>
-    <div class="topnav">
-        <div class="saveStuff">
-            <div class="saveData">
-                <button type="button" onclick="save()">
-                    Save </br>
-                </button>
+    <header>
+        <div class="container">
+            <div id="brand">
+                <h1>
+                    <span class="highlight">Seani's</span> Github Site
+                </h1>
+                <div id="patchNumber">
+                    <p><span class="highlight">Patch 4.20</span></p>
+                </div>
             </div>
-            <div class="saveData">
-                <button type="button" onclick="deleteSave()">
-                    Delete Save </br>
-                </button>
-            </div>
-            <div class="saveData">
-                <button type="button" onclick="window.location.href = './Patchnotes.html'" )">
-                    Patchnotes </br>
-                </button>
-            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="current"><a href="/tereziGangIdle/WelcomeToPyropeFarms.html">Game</a></li>
+                    <li><a href="/tereziGangIdle/Patchnotes.html">Patchnotes</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="patchNumber">
-            <p>Patch 4.11</p>
-        </div>
+    </header>
 
-    </div>
-
-
-    <div class="container">
-        <div class="title-box">
-            <h1>Welcome to Pyrope Farms</h1>
-        </div>
-    </div>
-
-
-    <div class="statDisplay">
-
-        <div class="stats">
-
-            <div class="tereziDisplay">
-
-                <p>Terezi Count: <span id="tereziCount"> 0 </span>
-                    <sup><span id="tereziCountPower">0</span></sup> </p>
+    <section id="gameTop">
+        <div class="container">
+            <div class="title-box">
+                <div id="gameTitle">
+                    <h1>Welcome to Pyrope Farms</h1>
+                </div>
             </div>
 
-            <div class="perSecond">
-                <p>Terezi's Per Second:
-                    <span id="tps"> 0 </span> </br></p>
-            </div>
+            <nav id="saveStuff">
+                <ul>
+                    <li>
+                        <button type="button" onclick="save()">
+                            Save
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="deleteSave()">
+                            Delete Save
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href = './Patchnotes.html'" )">
+                            Patchnotes
+                        </button>
+                    </li>
+                </ul>
+            </nav>
 
-            <div class="pointDistribtion">
-                <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'terezi')">
-                    -</button>
-                <p>Get Terezi's</p>
-                <button type="buttonPlus" onclick="tereziGangAllocation(1, 'terezi')">
-                    +</button>
-            </div>
-            <div class="currentWorkerDisplay">
-                <p>Current Gang<br>
-                    Members<br>
-                    Making Terezis: <span id="currentTereziWorkers">0</span></p>
-            </div>
-
-            <div class="tereziGangMembers">
-                <button type="button" onclick="buyTereziGangMember()">
-                    Terezi Gang Members: <span id="tereziGangMembersTotal"> 1 </span></br>
-                    Available Terezi<br>
-                    Gang Members: <span id="tereziGangMembersAvailable"> 1 </span></br>
-                    Cost: <span id="tereziGangMemberCost">10</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="stats">
-            <div class="woolDisplay">
-
-                <p>Wool Count:<br> <span id="wool"> 0 </span>
-                    <sup><span id="woolCountPower">0</span></sup> </p>
-            </div>
-
-            <div class="perSecond">
-                <p>Wool Per Second:
-                    <span id="wps"> 0 </span> </br></p>
-            </div>
-
-            <div class="pointDistribtion">
-                <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'sheep')">
-                    -</button>
-                <p>Shear Sheeps</p>
-                <button type="buttonPlus" onclick="tereziGangAllocation(1, 'sheep')">
-                    +</button>
-            </div>
-            <div class="currentWorkerDisplay">
-                <p>Current Gang<br>
-                    Members<br>
-                    Shearing Sheeps: <span id="currentSheepWorkers">0</span></p>
-            </div>
-        </div>
-        <div class="woolShop">
-            <div class="woolShopButtonDesign">
-
-                <button type="woolShopButton" onclick=shopBuyUpgrade(0)>
-                    Upgrade Terezi<br>
-                    gain by 10%<br>
-                    <span id="shopUpgradeTerezi">10</span> wool <br>
-                    <span id="shopUpgradeTereziPurchased">0</span> Purchased
-                </button>
-            </div>
-
-            <div class="woolShopButtonDesign">
-
-                <button type="woolShopButton" onclick=shopBuyUpgrade(1)>
-                    Upgrade Wool<br>
-                    gain by 10%<br>
-                    <span id="shopUpgradeWool">50</span> wool <br>
-                    <span id="shopUpgradeWoolPurchased">0</span> Purchased
-                </button>
-            </div>
-
-            <div class="woolShopButtonDesign">
-
-                <button type="woolShopButton" onclick=shopBuyUpgrade(2)>
-                    Reduce Gang<br>
-                    Member<br>
-                    Price by 10%<br>
-                    <span id="shopUpgradeGangMember">100</span> wool<br>
-                    <span id="shopUpgradeGangMemberPurchased">0</span> Purchased
-                </button>
-            </div>
-            <div>
-                <img src="images/terezi-openbound-dragon.gif">
-            </div>
-
+    </section>
+    <!-- Game Display-->
+    <section id="gameBody">
+        <div id="screenSelect">
 
         </div>
+        <div id="gameScreenContainer">
+            <div id="gameScreen1">
+                <div class="gameDiv">
+                    <div class="statDisplay">
 
-    </div>
+                        <div class="stats">
 
+                            <div class="numDisplay">
+
+                                <p>Terezi Count: <span id="tereziCount"> 0 </span>
+                                    <sup><span id="tereziCountPower">0</span></sup> </p>
+                            </div>
+
+                            <div class="perSecond">
+                                <p>Terezi's Per Second:
+                                    <span id="tps"> 0 </span> </br></p>
+                            </div>
+
+                            <div class="pointDistribtion">
+                                <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'terezi')">
+                                    -</button>
+                                <p>Get Terezi's</p>
+                                <button type="buttonPlus" onclick="tereziGangAllocation(1, 'terezi')">
+                                    +</button>
+                            </div>
+                            <div class="currentWorkerDisplay">
+                                <p>Current Gang<br>
+                                    Members<br>
+                                    Making Terezis: <span id="currentTereziWorkers">0</span></p>
+                            </div>
+
+                            <div class="tereziGangMembers">
+                                <button type="button" onclick="buyTereziGangMember()">
+                                    Terezi Gang Members: <span id="tereziGangMembersTotal"> 1 </span></br>
+                                    Available Terezi<br>
+                                    Gang Members: <span id="tereziGangMembersAvailable"> 1 </span></br>
+                                    Cost: <span id="tereziGangMemberCost">10</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="stats">
+                            <div class="numDisplay">
+
+                                <p>Wool Count:<br> <span id="wool"> 0 </span>
+                                    <sup><span id="woolCountPower">0</span></sup> </p>
+                            </div>
+
+                            <div class="perSecond">
+                                <p>Wool Per Second:
+                                    <span id="wps"> 0 </span> </br></p>
+                            </div>
+
+                            <div class="pointDistribtion">
+                                <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'sheep')">
+                                    -</button>
+                                <p>Shear Sheeps</p>
+                                <button type="buttonPlus" onclick="tereziGangAllocation(1, 'sheep')">
+                                    +</button>
+                            </div>
+                            <div class="currentWorkerDisplay">
+                                <p>Current Gang<br>
+                                    Members<br>
+                                    Shearing Sheeps: <span id="currentSheepWorkers">0</span></p>
+                            </div>
+                        </div>
+                        <div class="stats" id="treeDisplayStack">
+
+                            <div class="numDisplay">
+
+                                <p>Log Count: <span id="treeCount"> 0 </span>
+                                    <sup><span id="treeCountPower">0</span></sup> </p>
+                            </div>
+
+                            <div class="perSecond">
+                                <p>Log's Per Second:
+                                    <span id="lps"> 0 </span> </br></p>
+                            </div>
+
+                            <div class="pointDistribtion">
+                                <button type="buttonMinus" onclick="tereziGangAllocation(-1, 'terezi')">
+                                    -</button>
+                                <p>Cut Trees</p>
+                                <button type="buttonPlus" onclick="tereziGangAllocation(1, 'terezi')">
+                                    +</button>
+                            </div>
+                            <div class="currentWorkerDisplay">
+                                <p>Current Gang<br>
+                                    Members<br>
+                                    Cutting Trees: <span id="currentTereziWorkers">0</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="shopSection">
+                        <div id="woolShop">
+                            <div class="woolShopButtonDesign">
+
+                                <button type="woolShopButton" onclick=shopBuyUpgrade(0)>
+                                    Upgrade Terezi<br>
+                                    gain by 10%<br>
+                                    <span id="shopUpgradeTerezi">10</span> wool <br>
+                                    <span id="shopUpgradeTereziPurchased">0</span> Purchased
+                                </button>
+                            </div>
+
+                            <div class="woolShopButtonDesign">
+
+                                <button type="woolShopButton" onclick=shopBuyUpgrade(1)>
+                                    Upgrade Wool<br>
+                                    gain by 10%<br>
+                                    <span id="shopUpgradeWool">50</span> wool <br>
+                                    <span id="shopUpgradeWoolPurchased">0</span> Purchased
+                                </button>
+                            </div>
+
+                            <div class="woolShopButtonDesign">
+
+                                <button type="woolShopButton" onclick=shopBuyUpgrade(2)>
+                                    Reduce Gang<br>
+                                    Member<br>
+                                    Price by 10%<br>
+                                    <span id="shopUpgradeGangMember">100</span> wool<br>
+                                    <span id="shopUpgradeGangMemberPurchased">0</span> Purchased
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="images/terezi-openbound-dragon.gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="gameScreen2">
+                <div class="statDisplay">
+
+                </div>
+                <div class="shopSection">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="underGame">
+        <div class="tutorial">
+            <h1>Tutorial!!!!</h1>
+            <p>Lol Pranked, figure it out yourself</p>
+        </div>
+    </section>
+    <footer>
+        <p>Seani, A Guy with a Dream</p>
+        <p>Not Copyright 2020</p>
+    </footer>
 
     <script src="main.js">
     </script>

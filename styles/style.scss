@@ -1,0 +1,27 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	padding: 0px;
+	font-weight: normal;
+	margin: 0px;
+	background-color: #555e6e;
+}
+
+/* Global */
+.container {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+ul {
+	margin: 10;
+	padding: 0;
+}
+
+@import "GameDisplay";
+@import "GameSaveBar";
+@import "header";
+@import "index";
+@import "PatchNotes";

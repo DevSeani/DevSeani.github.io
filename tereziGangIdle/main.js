@@ -11,7 +11,6 @@ function setFavicon(faviconImage) {
 }
 
 var tereziCount = 0;
-var tereziGangMembers = 1;
 var tereziGangMembersTotal = 1;
 var tereziGangMembersAvailable = 1;
 var currentTereziWorkers = 0;
@@ -67,6 +66,11 @@ function deleteSave() {
 
 window.onload = load();
 window.onload = upgradeMultiplierChange();
+window.onload = myFunction();
+
+function myFunction() {
+	document.getElementById("treeDisplayStack").style.display = "none";
+}
 
 function format(value) {
 	let power = Math.floor(Math.log10(value));

@@ -1,0 +1,54 @@
+/* SaveBar */
+#gameTop {
+	border-bottom: #000000 solid 2px;
+	padding: none;
+	margin: none;
+	background-color: #0e1116;
+}
+
+#gameTitle h1 {
+	margin: 0 5%;
+	padding: 0;
+}
+
+#saveStuff {
+	float: right;
+	margin-top: 10px;
+}
+
+#saveStuff li {
+	display: inline;
+}
+
+#saveStuff button {
+	float: none;
+	color: #f2f2f2;
+	text-align: center;
+	text-decoration: none;
+	color: #0e1116;
+	font-size: 17px;
+}
+
+#saveStuff button:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+#saveStuff button.active {
+	color: white;
+}
+
+/* Media Queries */
+@media (max-width: 1010px) {
+	#saveStuff,
+	#saveStuff li {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	#saveStuff {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+}

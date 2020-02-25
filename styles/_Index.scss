@@ -1,0 +1,88 @@
+/* Home Page */
+
+#homePage {
+	height: 400px;
+	width: 100%;
+	background: url("/images/TereziForest.gif") no-repeat 0 80%;
+	background-size: cover;
+}
+
+.title-box h1 {
+	text-align: start;
+	color: #008282;
+	font-size: 40px;
+	text-shadow: 2px 3px #000000;
+	padding: none;
+	float: left;
+}
+
+#homePage button {
+	float: left;
+	background: transparent;
+	border: 2px #000000 solid;
+	font-size: 40px;
+	min-height: 100px;
+}
+
+/* Info */
+
+#info {
+	background-color: #0e1116;
+	color: #ffffff;
+	min-height: 30px;
+}
+
+#info p {
+	float: left;
+}
+
+#info img {
+	float: left;
+	height: 40px;
+	padding: 0px 10px;
+}
+
+/* Boxes */
+#boxes {
+	margin: 20px;
+}
+
+#boxes .box {
+	float: left;
+	text-align: center;
+	width: 30%;
+	padding: 10px;
+}
+
+#boxes .box img {
+	width: 90px;
+}
+
+footer {
+	margin-top: 20px;
+	color: #000000;
+	text-align: center;
+}
+
+/* Media Queries Home*/
+@media (max-width: 768px) {
+	header #branding,
+	header nav,
+	header nav li {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	header nav {
+		display: flex;
+		width: 100%;
+	}
+	#boxes {
+		display: flex;
+	}
+	#boxes .box {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+}

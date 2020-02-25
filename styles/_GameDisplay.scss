@@ -1,0 +1,167 @@
+/*Game Display*/
+
+/* Screen Outsides*/
+.gameBody {
+	margin: 0;
+	padding: 0;
+	.gameScreenContainer {
+		margin: 0;
+		padding: 0;
+	}
+}
+.gameDiv {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	background-image: url(/tereziGangIdle/images/TereziLand.gif);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 65%;
+	margin: 0;
+	padding: 0;
+}
+
+.statDisplay {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: center;
+	flex-grow: 2;
+}
+
+.shopSection {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	flex-grow: 2;
+}
+
+/*Screen insides*/
+
+.stats {
+	margin-left: 10px;
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	.pointDistribtion {
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		p {
+			margin: 0;
+			font-size: 17px;
+			text-align: center;
+			background-color: #008282;
+			font-family: Verdana;
+			color: #0e1116;
+			border: #008282 1px solid;
+		}
+		button {
+			margin: 0;
+			background-color: #008282;
+			font-family: Verdana;
+			color: #0e1116;
+			font-size: 17px;
+			border: #0e1116 3px solid;
+			&:hover {
+				background-color: #026970;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.tereziGangMembers {
+		margin: 0;
+		button {
+			background-color: #b3001b;
+			font-family: Verdana;
+			color: #0e1116;
+			border: #0e1116 5px solid;
+			cursor: pointer;
+			&:hover {
+				background-color: #9b061c;
+			}
+		}
+	}
+
+	.currentWorkerDisplay {
+		margin: 0;
+		text-align: center;
+		background-color: #384586;
+		font-family: Verdana;
+		color: #0e1116;
+	}
+
+	.numDisplay {
+		p {
+			margin: 0;
+			word-wrap: break-word;
+			width: 180px;
+			background-color: #ffffff;
+		}
+	}
+
+	.perSecond p {
+		margin: 0;
+		word-wrap: break-word;
+		width: 150px;
+		background-color: rgb(134, 133, 133);
+	}
+}
+
+#woolShop {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: start;
+	margin: 10px;
+	.woolShopButtonDesign {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		button {
+			margin: 10px 10px 0 0;
+			background-color: #33aa3d;
+			font-family: Verdana;
+			color: #0e1116;
+			border: #0e1116 5px solid;
+			cursor: pointer;
+			&:hover {
+				background-color: #1e6e24;
+			}
+		}
+	}
+}
+
+/* */
+.tutorial {
+	margin: 0;
+	text-align: center;
+	background-color: darkorange;
+	h1 {
+		margin: 0;
+	}
+}
+
+/* Media Queries Game*/
+@media (max-width: 768px) {
+	header #branding,
+	header nav,
+	header nav li {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	header nav {
+		display: flex;
+		width: 100%;
+	}
+}
