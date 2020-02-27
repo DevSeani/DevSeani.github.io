@@ -18,7 +18,7 @@
                     <span class="highlight">Seani's</span> Github Site
                 </h1>
                 <div id="patchNumber">
-                    <p><span class="highlight">Patch 4.20</span></p>
+                    <p><span class="highlight">Patch 4.21</span></p>
                 </div>
             </div>
 
@@ -48,18 +48,16 @@
                         </button>
                     </li>
                     <li>
-                        <button type="button" onclick="deleteSave()">
-                            Delete Save
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" onclick="window.location.href = './Patchnotes.html'" )">
-                            Patchnotes
+                        <button type="button" id="saveListButton" onclick="saveListController()">
+                            Save List
                         </button>
                     </li>
                 </ul>
             </nav>
+        </div>
+        <div id="saveListHolder">
 
+        </div>
     </section>
     <!-- Game Display-->
     <section id="gameBody">

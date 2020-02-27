@@ -10,6 +10,8 @@ function setFavicon(faviconImage) {
 	headTitle.appendChild(setFavicon);
 }
 
+var saveList = { state: "createListNext" };
+
 var tereziCount = 0;
 var tereziGangMembersTotal = 1;
 var tereziGangMembersAvailable = 1;
@@ -22,8 +24,45 @@ var multiplierChange = [1.0, 1.0, 1.0];
 var upgradeTypes = ["tereziGain", "woolGain", "memberPriceReduction"];
 var upgradeAmount = [0, 0, 0];
 
+var saveData = { saveInfo: {} };
+
+function fileSelect(saveName) {
+	saveFile = {
+		saveName: saveName
+	};
+
+	localStorage.setItem("fileChecker", JSON.stringify(saveFile));
+}
+
+function fileCheck() {
+	var saveFile = JSON.parse(localStorage.getItem("fileChecker"));
+	if (saveFile == null) {
+		console.log("No file called fileChecker found");
+		return false;
+	}
+	console.log("File check found");
+
+	if (typeof saveFile.saveName !== "undefined")
+		saveData.saveName = saveFile.saveName;
+}
+
+function changeSaveFile(saveFile) {
+	let confirmation = confirm(
+		"You are about to change save file. Only click ok if that is ok."
+	);
+	if (confirmation == true) {
+		save();
+		fileSelect(saveFile);
+		setTimeout(() => {
+			location.reload();
+		}, 1000);
+	} else return;
+}
+
+window.onload = fileCheck();
+
 function save() {
-	var save = {
+	saveData.saveInfo = {
 		tereziCount: tereziCount,
 		wool: wool,
 		tereziGangMembersAvailable: tereziGangMembersAvailable,
@@ -32,12 +71,25 @@ function save() {
 		currentSheepWorkers: currentSheepWorkers,
 		upgradeAmount: upgradeAmount
 	};
-	localStorage.setItem("save", JSON.stringify(save));
+	localStorage.setItem(saveData.saveName, JSON.stringify(saveData.saveInfo));
 }
 
 function load() {
-	var savegame = JSON.parse(localStorage.getItem("save"));
-	if (savegame == null) return false;
+	let oldsystem = false;
+	var savegame = JSON.parse(localStorage.getItem(saveData.saveName));
+	if (savegame == null) {
+		var savegame = JSON.parse(localStorage.getItem("save"));
+		oldsystem = true;
+		if (savegame == null) {
+			console.log("No save called " + saveData.saveName + " found");
+			return false;
+		}
+	}
+	if (saveData.saveName == "save") {
+		oldsystem = true;
+	}
+	console.log("Old Save System: " + oldsystem);
+	console.log("Save found: " + saveData.saveName);
 	if (typeof savegame.tereziCount !== "undefined")
 		tereziCount = savegame.tereziCount;
 	if (typeof savegame.tereziGangMembersAvailable !== "undefined")
@@ -51,22 +103,159 @@ function load() {
 	if (typeof savegame.wool !== "undefined") wool = savegame.wool;
 	if (typeof savegame.upgradeAmount !== "undefined")
 		upgradeAmount = savegame.upgradeAmount;
+	if (oldsystem == true) {
+		saveData.saveName = "save1";
+		save();
+		fileSelect("save1");
+		localStorage.removeItem("save");
+		setTimeout(() => {
+			location.reload();
+		}, 500);
+	}
 }
 
-function deleteSave() {
+function deleteSave(saveFile) {
 	let confirmation = confirm(
 		"You are about to delete your save. Only click ok if that is ok."
 	);
 	if (confirmation == true) {
-		window.clearInterval(autoSave);
-		localStorage.removeItem("save");
-		location.reload();
+		localStorage.removeItem(saveFile);
+		setTimeout(() => {
+			location.reload();
+		}, 1000);
 	} else return;
 }
 
 window.onload = load();
 window.onload = upgradeMultiplierChange();
 window.onload = myFunction();
+
+function saveListController() {
+	saveListState = () => saveList.state;
+
+	saveListButton = document.getElementById("saveListButton");
+
+	function saveListCreator() {
+		var saveListContainerDiv = document.createElement("DIV");
+		saveListContainerDiv.setAttribute("id", "saveListContainer");
+		saveListContainerDiv.setAttribute("class", "saveListContainer");
+		saveListContainerDiv.style.padding = "0";
+		saveListContainerDiv.style.width = "100%";
+		saveListContainerDiv.style.height = "0";
+		saveListContainerDiv.style.display = "flex";
+		saveListContainerDiv.style.borderBottom = "1px #0e1116 solid";
+		saveListContainerDiv.style.flexDirection = "column";
+		saveListContainerDiv.style.justifyContent = "center";
+		saveListContainerDiv.style.alignContent = "center";
+		saveListContainerDiv.style.background = "#008282";
+		saveListContainerDiv.style.transitionProperty = "height";
+		saveListContainerDiv.style.transitionDuration = "3.5s";
+		saveListContainerDiv.style.transitionTimingFunction = "ease-in";
+		document.getElementById("saveListHolder").appendChild(saveListContainerDiv);
+
+		var saveSelectListContainerDiv = document.createElement("DIV");
+		saveSelectListContainerDiv.setAttribute("id", "saveSelectListContainer");
+		saveSelectListContainerDiv.style.display = "flex";
+		saveSelectListContainerDiv.style.justifyContent = "center";
+		saveSelectListContainerDiv.style.alignContent = "center";
+		saveSelectListContainerDiv.style.opacity = "0";
+		saveSelectListContainerDiv.style.transitionProperty = "opacity";
+		saveSelectListContainerDiv.style.transitionDuration = "1s";
+		saveSelectListContainerDiv.style.transitionDelay = "2.75s";
+		saveListContainerDiv.style.transitionTimingFunction = "ease-in";
+		document
+			.getElementById("saveListContainer")
+			.appendChild(saveSelectListContainerDiv);
+
+		for (let i = 0; i < 3; i++) {
+			var saveSelectButton = document.createElement("button");
+			saveSelectButton.setAttribute("class", "saveSelectButton");
+			saveSelectButton.innerHTML = "Load Save File " + (i + 1);
+			saveSelectButton.onclick = function() {
+				changeSaveFile("save" + (i + 1));
+			};
+			document
+				.getElementById("saveSelectListContainer")
+				.appendChild(saveSelectButton);
+		}
+
+		var saveDeleteListContainerDiv = document.createElement("DIV");
+		saveDeleteListContainerDiv.setAttribute("id", "saveDeleteListContainer");
+		saveDeleteListContainerDiv.style.display = "flex";
+		saveDeleteListContainerDiv.style.justifyContent = "center";
+		saveDeleteListContainerDiv.style.alignContent = "center";
+		saveDeleteListContainerDiv.style.opacity = "0";
+		saveDeleteListContainerDiv.style.transitionProperty = "opacity";
+		saveDeleteListContainerDiv.style.transitionDuration = "1s";
+		saveDeleteListContainerDiv.style.transitionDelay = "2.2s";
+		saveListContainerDiv.style.transitionTimingFunction = "ease-in";
+		document
+			.getElementById("saveListContainer")
+			.appendChild(saveDeleteListContainerDiv);
+
+		for (let j = 0; j < 3; j++) {
+			var saveDeleteButton = document.createElement("button");
+			saveDeleteButton.setAttribute("class", "saveDeleteButton");
+			saveDeleteButton.innerHTML = "Delete File " + (j + 1);
+			saveDeleteButton.onclick = function() {
+				deleteSave("save" + (j + 1));
+			};
+			document
+				.getElementById("saveDeleteListContainer")
+				.appendChild(saveDeleteButton);
+		}
+	}
+
+	function createSaveListButton() {
+		saveListCreator();
+		saveList.state = "removeListNext";
+	}
+	function removeSaveListButton() {
+		var saveListContainer = document.getElementById("saveListContainer");
+		saveListContainer.remove();
+		saveList.state = "createListNext";
+	}
+
+	function transitionPlay(direction) {
+		let saveListContainerDiv = document.getElementById("saveListContainer");
+		let saveSelectListContainerDiv = document.getElementById(
+			"saveSelectListContainer"
+		);
+		let saveDeleteListContainerDiv = document.getElementById(
+			"saveDeleteListContainer"
+		);
+		if (direction == "forward") {
+			saveListContainerDiv.style.height = "100px";
+			saveSelectListContainerDiv.style.opacity = "1";
+			saveDeleteListContainerDiv.style.opacity = "1";
+		}
+		if (direction == "backward") {
+			saveListContainerDiv.style.height = "0px";
+			saveSelectListContainerDiv.style.opacity = "0";
+			saveDeleteListContainerDiv.style.opacity = "0";
+		}
+	}
+
+	if (saveListState() == "createListNext") {
+		saveListButton.disabled = true;
+		createSaveListButton();
+		setTimeout(function() {
+			transitionPlay("forward");
+		}, 20);
+		setTimeout(() => {
+			saveListButton.disabled = false;
+		}, 3000);
+	} else {
+		saveListButton.disabled = true;
+		transitionPlay("backward");
+		setTimeout(function() {
+			removeSaveListButton();
+		}, 4000);
+		setTimeout(() => {
+			saveListButton.disabled = false;
+		}, 3000);
+	}
+}
 
 function myFunction() {
 	document.getElementById("treeDisplayStack").style.display = "none";
