@@ -104,8 +104,9 @@
 		p {
 			margin: 0;
 			word-wrap: break-word;
-			width: 180px;
-			background-color: #ffffff;
+			min-width: fit-content;
+			max-width: 220px;
+			background-color: #0e1116;
 		}
 	}
 
